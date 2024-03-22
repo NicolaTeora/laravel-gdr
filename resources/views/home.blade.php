@@ -5,7 +5,7 @@
 @section('main-content')
     <section>
         <div class="container py-4">
-            <h1>Items Team 4</h1>
+            <h1 class="my-4">Armory Team 4</h1>
             <table class="table">
                 <thead>
                     <tr>
