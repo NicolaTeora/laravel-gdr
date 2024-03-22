@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('slug', 50);
             $table->string('type', 25);
-            $table->string('category', 20);
+            $table->string('category', 50);
             $table->string('weight', 10);
             $table->string('cost', 10);
             $table->string('damage_dice', 20);
