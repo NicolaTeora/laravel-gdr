@@ -6,8 +6,8 @@
 
 
 <div class="container mt-3">
-    <a href="{{ route('character.index') }}" class="btn btn-primary my-3">Torna alla lista</a>
-    <a href="{{ route('character.edit', $character) }}" class="btn btn-primary my-3">Modifica Dettagli</a>
+    <a href="{{ route('characters.index') }}" class="btn btn-primary my-3">Torna alla lista</a>
+    <a href="{{ route('characters.edit', $character) }}" class="btn btn-primary my-3">Modifica Dettagli</a>
     <h1>#{{ $character->id }}: {{ $character->name }}</h1>
 
     <div class="row">
