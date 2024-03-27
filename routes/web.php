@@ -20,16 +20,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ItemController::class, 'index'])->name('home');
 
 Route::resource("characters", CharacterController::class);
-Route::get("/characters", [CharacterController::class, 'index'])->name('characters.index');
-Route::get("/characters/create", [CharacterController::class, 'create'])->name('characters.create');
-Route::get("/characters/{character}", [CharacterController::class, 'show'])->name('characters.show');
-Route::post("/characters", [CharacterController::class, 'store'])->name('characters.store');
-Route::get("/characters/{character}/edit", [CharacterController::class, 'edit'])->name('characters.edit');
-Route::patch("/characters/{character}", [CharacterController::class, 'update'])->name('characters.update');
-Route::delete("/characters/{character}", [CharacterController::class, 'destroy'])->name('characters.destroy');
-
-
-
-
-
-
