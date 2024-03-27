@@ -25,7 +25,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+        return view('characters.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $character = new Character;
+        $character->name = $data["name"];
+        $character->description = $data["description"];
+        $character->attack = $data["attack"];
+        $character->defense = $data["defense"];
+        $character->speed = $data["speed"];
+        $character->life = $data["life"];
+        $character->save();
+
+        return redirect()->route('characters.show');
     }
 
     /**
@@ -71,7 +82,9 @@ class CharacterController extends Controller
      */
     public function update(Request $request, Character $character)
     {
-        //
+        $data = $request->all();
+        $character->update($data);
+        return redirect()->route('characters.show', $character);
     }
 
     /**
@@ -82,6 +95,7 @@ class CharacterController extends Controller
      */
     public function destroy(Character $character)
     {
-        //
+        $character->delete();
+        return redirect()->route('characters.index');
     }
 }
