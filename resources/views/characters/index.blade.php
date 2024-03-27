@@ -5,6 +5,7 @@
 @section('main-content')
     <section>
         <div class="container py-4">
+
             <div class="row">
                 @foreach($characters as $character)
                 <div class="col">
@@ -30,6 +31,7 @@
                 
                 @endforeach
             </div>
+
         </div>
     </section>
 @endsection
