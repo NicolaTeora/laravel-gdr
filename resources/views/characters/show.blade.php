@@ -1,3 +1,10 @@
+@extends('layouts.app')
+
+@section('title', 'Pagina iniziale')
+
+@section('main-content')
+
+
 <div class="container mt-3">
     <a href="{{ route('character.index') }}" class="btn btn-primary my-3">Torna alla lista</a>
     <a href="{{ route('character.edit', $character) }}" class="btn btn-primary my-3">Modifica Dettagli</a>
