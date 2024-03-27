@@ -14,7 +14,8 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        //
+        $characters = Character::paginate(12);
+        return view('characters.index', compact('characters'));
     }
 
     /**
@@ -46,7 +47,8 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        //
+
+        return view('characters.show', compact('characters'));
     }
 
     /**
