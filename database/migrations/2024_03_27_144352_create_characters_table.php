@@ -15,7 +15,12 @@ return new class extends Migration
     {
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
-
+            $table->string('name', 25);
+            $table->string('description');
+            $table->integer('attack')->default(10);
+            $table->integer('defense')->default(10);
+            $table->integer('speed')->default(10);
+            $table->integer('life')->default(10);
 
             $table->timestamps();
         });
