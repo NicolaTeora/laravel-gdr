@@ -18,6 +18,13 @@
                         ]) aria-current="page"
                             href="{{ route('characters.index') }}">Characters</a>
                     </li>
+                    <li class="nav-item">
+                        <a @class([
+                            'nav-link',
+                            'active' => Route::currentRouteName() == 'characters.create',
+                        ]) aria-current="page"
+                            href="{{ route('characters.create') }}">create character</a>
+                    </li>
             </div>
         </div>
     </nav>
