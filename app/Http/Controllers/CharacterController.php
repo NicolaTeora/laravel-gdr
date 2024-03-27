@@ -25,7 +25,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+        return view('characters.create');
     }
 
     /**
@@ -36,7 +36,14 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data= $request->all();
+        $character=new Character();
+        $character->fill( $data );
+        $character->save();
+        return redirect()
+        ->route('characters.show', $comic)
+        ->with('message','Nuovo personaggio salvato con successo')
+        ->with('class','alert-success');;
     }
 
     /**
@@ -59,7 +66,7 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        //
+        return view('characters.edit', compact('character'));
     }
 
     /**
@@ -71,7 +78,12 @@ class CharacterController extends Controller
      */
     public function update(Request $request, Character $character)
     {
-        //
+        $data= $request->all();
+        $character->update($data);
+        return redirect()
+        ->route('characters.show', $character)
+        ->with('message','Modifica effettuata con successo')
+        ->with('class','alert-success');
     }
 
     /**
@@ -82,6 +94,10 @@ class CharacterController extends Controller
      */
     public function destroy(Character $character)
     {
-        //
+        $character->delete();
+        return redirect()
+        ->route('characters.index')
+        ->with('message','Personaggio eliminato con successo')
+        ->with('class','alert-success');
     }
 }

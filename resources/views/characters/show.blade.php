@@ -4,7 +4,6 @@
 
 @section('main-content')
 
-
 <div class="container mt-3">
     <a href="{{ route('characters.index') }}" class="btn btn-primary my-3">Torna alla lista</a>
     <a href="{{ route('characters.edit', $character) }}" class="btn btn-primary my-3">Modifica Dettagli</a>
@@ -44,3 +43,4 @@
     </div>
 </div>
 @endsection
+
