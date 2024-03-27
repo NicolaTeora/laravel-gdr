@@ -41,7 +41,7 @@ class CharacterController extends Controller
         $character->fill( $data );
         $character->save();
         return redirect()
-        ->route('characters.show', $comic)
+        ->route('characters.show', $character)
         ->with('message','Nuovo personaggio salvato con successo')
         ->with('class','alert-success');;
     }
@@ -55,7 +55,7 @@ class CharacterController extends Controller
     public function show(Character $character)
     {
 
-        return view('characters.show', compact('characters'));
+        return view('characters.show', compact('character'));
     }
 
     /**
@@ -81,7 +81,7 @@ class CharacterController extends Controller
         $data= $request->all();
         $character->update($data);
         return redirect()
-        ->route('characters.show', $character)
+        ->route('characters.update', $character)
         ->with('message','Modifica effettuata con successo')
         ->with('class','alert-success');
     }
