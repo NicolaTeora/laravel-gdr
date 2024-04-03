@@ -2,7 +2,7 @@
 
 @section('title', 'Pagina iniziale')
 
-@section('main-content')
+@section('content')
     <section>
         <div class="container py-4">
             <h1 class="my-4">Armory Team 4</h1>

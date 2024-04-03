@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Character;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class CharacterController extends Controller
     public function index()
     {
         $characters = Character::paginate(12);
-        return view('characters.index', compact('characters'));
+        return view('admin.characters.index', compact('characters'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('characters.create');
+        return view('admin.characters.create');
     }
 
     /**
@@ -36,14 +37,14 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        $data= $request->all();
-        $character=new Character();
-        $character->fill( $data );
+        $data = $request->all();
+        $character = new Character();
+        $character->fill($data);
         $character->save();
         return redirect()
-        ->route('characters.show', $character)
-        ->with('message','Nuovo personaggio salvato con successo')
-        ->with('class','alert-success');;
+            ->route('characters.show', $character)
+            ->with('message', 'Nuovo personaggio salvato con successo')
+            ->with('class', 'alert-success');;
     }
 
     /**
@@ -55,7 +56,7 @@ class CharacterController extends Controller
     public function show(Character $character)
     {
 
-        return view('characters.show', compact('character'));
+        return view('admin.characters.show', compact('character'));
     }
 
     /**
@@ -66,7 +67,7 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('characters.edit', compact('character'));
+        return view('admin.characters.edit', compact('character'));
     }
 
     /**
@@ -78,12 +79,12 @@ class CharacterController extends Controller
      */
     public function update(Request $request, Character $character)
     {
-        $data= $request->all();
+        $data = $request->all();
         $character->update($data);
         return redirect()
-        ->route('characters.update', $character)
-        ->with('message','Modifica effettuata con successo')
-        ->with('class','alert-success');
+            ->route('characters.show', compact('character'))
+            ->with('message', 'Modifica effettuata con successo')
+            ->with('class', 'alert-success');
     }
 
     /**
@@ -96,8 +97,8 @@ class CharacterController extends Controller
     {
         $character->delete();
         return redirect()
-        ->route('characters.index')
-        ->with('message','Personaggio eliminato con successo')
-        ->with('class','alert-success');
+            ->route('characters.index')
+            ->with('message', 'Personaggio eliminato con successo')
+            ->with('class', 'alert-success');
     }
 }
