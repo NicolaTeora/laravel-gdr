@@ -7,7 +7,7 @@
 @section('content')
     <section>
         <div class="container py-4">
-            <form action="{{ route('characters.update', $character) }}" method="post" class="row">
+            <form action="{{ route('admin.characters.update', $character) }}" method="post" class="row">
                 @csrf
                 @method('PATCH')
 
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-6">
                     <label for="description" class="form-label">description</label>
-                    <textarea value="{{ $character->description }}" name="description" class="form-control"></textarea>
+                    <textarea name="description" class="form-control">{{ $character->description }}</textarea>
                 </div>
                 <div class="col-6">
                     <label for="attack" class="form-label">attack</label>

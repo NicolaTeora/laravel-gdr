@@ -50,6 +50,29 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        @auth
+                        <li class="nav-item">
+                            <a @class([
+                                'nav-link',
+                                'active' => Route::currentRouteName() == 'characters.index',
+                            ]) aria-current="page"
+                                href="{{ route('admin.characters.index') }}">Characters</a>
+                        </li>
+                        <li class="nav-item">
+                            <a @class([
+                                'nav-link',
+                                'active' => Route::currentRouteName() == 'characters.create',
+                            ]) aria-current="page"
+                                href="{{ route('admin.characters.create') }}">Create character</a>
+                        </li>
+                        <li class="nav-item">
+                            <a @class([
+                                'nav-link',
+                                'active' => Route::currentRouteName() == 'characters.create',
+                            ]) aria-current="page"
+                                href="{{ route('admin.weapons') }}">Weapons List</a>
+                        </li>
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

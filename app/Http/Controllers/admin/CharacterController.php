@@ -11,7 +11,7 @@ class CharacterController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class CharacterController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -32,8 +32,8 @@ class CharacterController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -42,7 +42,7 @@ class CharacterController extends Controller
         $character->fill($data);
         $character->save();
         return redirect()
-            ->route('characters.show', $character)
+            ->route('admin.characters.show', $character)
             ->with('message', 'Nuovo personaggio salvato con successo')
             ->with('class', 'alert-success');;
     }
@@ -50,8 +50,8 @@ class CharacterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
+    //  * @param  \App\Models\Character  $character
+    //  * @return \Illuminate\Http\Response
      */
     public function show(Character $character)
     {
@@ -62,9 +62,9 @@ class CharacterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
-     */
+    //  * @param  \App\Models\Character  $character
+    //  * @return \Illuminate\Http\Response
+    //  */
     public function edit(Character $character)
     {
         return view('admin.characters.edit', compact('character'));
@@ -73,16 +73,16 @@ class CharacterController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  \App\Models\Character  $character
+    //  * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Character $character)
     {
         $data = $request->all();
         $character->update($data);
         return redirect()
-            ->route('characters.show', compact('character'))
+            ->route('admin.characters.show', compact('character'))
             ->with('message', 'Modifica effettuata con successo')
             ->with('class', 'alert-success');
     }
@@ -90,14 +90,14 @@ class CharacterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Character  $character
-     * @return \Illuminate\Http\Response
+    //  * @param  \App\Models\Character  $character
+    //  * @return \Illuminate\Http\Response
      */
     public function destroy(Character $character)
     {
         $character->delete();
         return redirect()
-            ->route('characters.index')
+            ->route('admin.characters.index')
             ->with('message', 'Personaggio eliminato con successo')
             ->with('class', 'alert-success');
     }

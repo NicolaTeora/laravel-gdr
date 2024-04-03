@@ -20,14 +20,40 @@
                         <li><b>life: </b>{{ $character['life'] }}</li>
                     </ul>
                 </div>
-                <a class="btn btn-primary " href="{{ route('characters.edit', $character) }}">Edit personaggio</a>
-                <form action="{{ route('characters.destroy', $character) }}" method="post" class="w-100">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-primary mt-3">cancella personaggio</button>
-                </form>
+                <div class="col-6">
+                    <a class="btn btn-primary w-100 " href="{{ route('admin.characters.edit', $character) }}">Edit personaggio</a>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">Delete character</button>
+                </div>
+                
+                
             </div>
         </div>
         </div>
         </div>
+
+
+        <div class="modal fade" id="delete-modal-{{ $character->id }}" tabindex="-1" aria-labelledby="delete-modal-{{ $character->id }}-label"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="delete-modal-{{ $character->id }}-label">Conferma eliminazione</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-start">
+                  Sei sicuro di voler eliminare definitivamente il progetto: {{ $character->name }}?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary my-2 w-100" data-bs-dismiss="modal">Annulla</button>
+        
+                  <form action="{{ route('admin.characters.destroy', $character) }}" method="post" class="w-100">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-primary mb-2 w-100">Cancella personaggio</button>
+                  </form>
+                </div>
+              </div>
+            </div>
     @endsection
