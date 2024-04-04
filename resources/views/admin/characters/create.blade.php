@@ -31,7 +31,9 @@
                     <label for="life" class="form-label">life</label>
                     <input type="number" min="1" max="100" name="life" class="form-control">
                 </div>
-                <button class="btn btn-primary mt-4">Submit</button>
+                <div class="col">
+                    <button class="btn btn-success mt-4">Salva Nuovo personaggio</button>
+                </div>
             </form>
         </div>
     </section>
