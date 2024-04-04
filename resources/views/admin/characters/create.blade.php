@@ -35,6 +35,10 @@
                     <button class="btn btn-success mt-4">Salva Nuovo personaggio</button>
                 </div>
             </form>
+            <button class="btn btn-primary my-2">
+                <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}">
+                    <-Torna ai personaggi </a>
+            </button>
         </div>
     </section>
 @endsection
