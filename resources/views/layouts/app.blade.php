@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div class="wrapper" id="app">
 
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -116,10 +116,7 @@
         <main class="">
             @yield('content')
         </main>
-
-        <footer>
-            {{-- @include('partials.footer') --}}
-        </footer>
+        @include('layouts.partials.footer')
     </div>
 </body>
 
