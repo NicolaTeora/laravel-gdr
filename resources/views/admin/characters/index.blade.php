@@ -32,6 +32,10 @@
                                     href="{{ route('admin.characters.create') }}">
                                     Aggiungi Personaggio
                                 </a>
+                                {{-- ToDo: abilitare cancellazione personaggio da index --}}
+                                {{-- <br>
+                                <a class="btn text-wrap text-decoration-none text-bg-danger badge" data-bs-toggle="modal"
+                                    data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio</a> --}}
                             </div>
                         </div>
                     </div>
@@ -39,5 +43,6 @@
             </div>
 
         </div>
+
     </section>
 @endsection

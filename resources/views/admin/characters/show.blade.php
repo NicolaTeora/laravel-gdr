@@ -26,8 +26,8 @@
                             Modifica personaggio
                         </a>
                     </button>
-                    <button class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">
+                        Cancella personaggio
                     </button>
                     <button class="btn btn-primary">
                         <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}">
@@ -38,7 +38,7 @@
         </div>
 
 
-
+        {{-- modale cancellazzione --}}
         <div class="modal fade" id="delete-modal-{{ $character->id }}" tabindex="-1"
             aria-labelledby="delete-modal-{{ $character->id }}-label" aria-hidden="true">
             <div class="modal-dialog">
