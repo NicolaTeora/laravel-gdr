@@ -23,7 +23,10 @@
                                 </ul>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ route('admin.characters.show', $character) }}">più dettagli...</a>
+                                <a class="text-wrap text-bg-primary badge"
+                                    href="{{ route('admin.characters.show', $character) }}">Dettagli Personaggio</a><br>
+                                <a class="text-wrap text-bg-success badge"
+                                    href="{{ route('admin.characters.create') }}">Aggiungi Personaggio</a>
                             </div>
                         </div>
                     </div>

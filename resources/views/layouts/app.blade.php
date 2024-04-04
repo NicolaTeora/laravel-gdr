@@ -35,7 +35,6 @@
                             </g>
                         </svg>
                     </div>
-                    {{-- config('app.name', 'Laravel') --}}
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -48,30 +47,30 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            <a @class(['nav-link', 'active' => Route::currentRouteName() == 'home']) href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
                         @auth
-                        <li class="nav-item">
-                            <a @class([
-                                'nav-link',
-                                'active' => Route::currentRouteName() == 'characters.index',
-                            ]) aria-current="page"
-                                href="{{ route('admin.characters.index') }}">Characters</a>
-                        </li>
-                        <li class="nav-item">
-                            <a @class([
-                                'nav-link',
-                                'active' => Route::currentRouteName() == 'characters.create',
-                            ]) aria-current="page"
-                                href="{{ route('admin.characters.create') }}">Create character</a>
-                        </li>
-                        <li class="nav-item">
-                            <a @class([
-                                'nav-link',
-                                'active' => Route::currentRouteName() == 'characters.create',
-                            ]) aria-current="page"
-                                href="{{ route('admin.weapons') }}">Weapons List</a>
-                        </li>
+                            <li class="nav-item">
+                                <a @class([
+                                    'nav-link',
+                                    'active' => Route::currentRouteName() == 'admin.characters.index',
+                                ]) aria-current="page"
+                                    href="{{ route('admin.characters.index') }}">Characters</a>
+                            </li>
+                            <li class="nav-item">
+                                <a @class([
+                                    'nav-link',
+                                    'active' => Route::currentRouteName() == 'admin.characters.create',
+                                ]) aria-current="page"
+                                    href="{{ route('admin.characters.create') }}">Create character</a>
+                            </li>
+                            <li class="nav-item">
+                                <a @class([
+                                    'nav-link',
+                                    'active' => Route::currentRouteName() == 'admin.weapons',
+                                ]) aria-current="page"
+                                    href="{{ route('admin.weapons') }}">Weapons List</a>
+                            </li>
                         @endauth
                     </ul>
 
@@ -117,6 +116,10 @@
         <main class="">
             @yield('content')
         </main>
+
+        <footer>
+            {{-- @include('partials.footer') --}}
+        </footer>
     </div>
 </body>
 
