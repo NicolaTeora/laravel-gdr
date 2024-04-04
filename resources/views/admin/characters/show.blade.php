@@ -26,12 +26,13 @@
                             href="{{ route('admin.characters.edit', $character) }}">Modifica
                             personaggio</a>
                     </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio
+                    </button>
                     <button class="btn btn-primary">
                         <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}"><-Torna ai
                                 personaggi</a>
                     </button>
-                    <button class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio</button>
                 </div>
             </div>
         </div>
