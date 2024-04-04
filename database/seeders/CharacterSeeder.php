@@ -21,10 +21,10 @@ class CharacterSeeder extends Seeder
             $character = new Character();
             $character->name = $faker->name();
             $character->description = $faker->paragraph(2);
-            $character->attack = $faker->numberBetween(1,100);
-            $character->defense = $faker->numberBetween(1,100);
-            $character->speed = $faker->numberBetween(1,100);
-            $character->speed = $faker->numberBetween(1,100);
+            $character->attack = $faker->numberBetween(1, 100);
+            $character->defense = $faker->numberBetween(1, 100);
+            $character->speed = $faker->numberBetween(1, 100);
+            $character->life = $faker->numberBetween(1, 100);
             $character->save();
         }
     }
