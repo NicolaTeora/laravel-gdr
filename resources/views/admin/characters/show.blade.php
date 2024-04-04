@@ -21,10 +21,11 @@
                     </ul>
                 </div>
                 <div class="col">
-                    <a class="btn btn-primary mb-3" href="{{ route('admin.characters.edit', $character) }}">Edit
+                    <a class="btn btn-success mb-3" href="{{ route('admin.characters.edit', $character) }}">Modifica
                         personaggio</a><br>
-                    <button class="btn btn-danger" data-bs-toggle="modal"
-                        data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio</button>
+                    <a class="btn btn-primary mb-3" href="{{ route('admin.characters.index') }}"><-Torna ai personaggi</a><br>
+                            <button class="btn btn-danger" data-bs-toggle="modal"
+                                data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio</button>
                 </div>
             </div>
         </div>
