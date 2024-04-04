@@ -6,8 +6,8 @@
     <section>
         <div class="container py-4">
             <div class="row">
+                <h1>{{ $character['name'] }}</h1>
                 <div class="col-6">
-                    <h1>{{ $character['name'] }}</h1>
                     <ul>
                         <li><b>description: </b>{{ $character['description'] }}</li>
                     </ul>
@@ -21,11 +21,17 @@
                     </ul>
                 </div>
                 <div class="col">
-                    <a class="btn btn-success mb-3" href="{{ route('admin.characters.edit', $character) }}">Modifica
-                        personaggio</a><br>
-                    <a class="btn btn-primary mb-3" href="{{ route('admin.characters.index') }}"><-Torna ai personaggi</a><br>
-                            <button class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio</button>
+                    <button class="btn btn-success">
+                        <a class="text-decoration-none text-reset"
+                            href="{{ route('admin.characters.edit', $character) }}">Modifica
+                            personaggio</a>
+                    </button>
+                    <button class="btn btn-primary">
+                        <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}"><-Torna ai
+                                personaggi</a>
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#delete-modal-{{ $character->id }}">Cancella personaggio</button>
                 </div>
             </div>
         </div>
@@ -50,7 +56,7 @@
                         <form action="{{ route('admin.characters.destroy', $character) }}" method="post" class="w-100">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-primary mb-2 w-100">Cancella personaggio</button>
+                            <button type="submit" class="btn btn-danger mb-2 w-100">Cancella personaggio</button>
                         </form>
                     </div>
                 </div>
