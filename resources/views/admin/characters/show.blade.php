@@ -28,8 +28,7 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+
 
 
         <div class="modal fade" id="delete-modal-{{ $character->id }}" tabindex="-1"
@@ -55,4 +54,6 @@
                     </div>
                 </div>
             </div>
-        @endsection
+        </div>
+    </section>
+@endsection
