@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('attack')->default(0);
             $table->integer('defense')->default(0);
             $table->integer('speed')->default(0);
+            $table->integer('intelligence')->default(0);
             $table->integer('life')->default(0);
 
             $table->timestamps();
