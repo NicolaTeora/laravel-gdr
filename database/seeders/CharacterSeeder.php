@@ -33,7 +33,7 @@ class CharacterSeeder extends Seeder
             $character->attack = $currCharacter['strength'];
             $character->defense = $currCharacter['defence'];
             $character->speed = $currCharacter['speed'];
-            $character->speed = $currCharacter['intelligence'];
+            $character->intelligence = $currCharacter['intelligence'];
             $character->life = $currCharacter['life'];
             $character->save();
         }
