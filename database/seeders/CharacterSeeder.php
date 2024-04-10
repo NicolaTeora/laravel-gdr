@@ -24,7 +24,7 @@ class CharacterSeeder extends Seeder
         $types[] = null;
 
         foreach ($characters as $currCharacter) {
-            $type_id = $faker->randomElement($types);
+            $type_id =$currCharacter['type_id'];
 
             $character = new Character();
             $character->type_id = $type_id;
