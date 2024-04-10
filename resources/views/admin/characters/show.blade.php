@@ -3,36 +3,54 @@
 @section('title', 'Pagina iniziale')
 
 @section('content')
-    <section>
+    <section class="character-show">
         <div class="container py-4">
             <div class="row">
                 <h1>{{ $character['name'] }}</h1>
-                <div class="col-6">
-                    <ul>
+                <div class="col-12">
+                    <ul class="ps-0">
                         <li><b>description: </b>{{ $character['description'] }}</li>
                     </ul>
-                </div>
-                <div class="col-6">
-                    <ul>
+
+                    <ul class="ps-0 d-flex w-100 justify content-between">
                         <li><b>attack: </b>{{ $character['attack'] }}</li>
-                        <li><b>defence: </b>{{ $character['defence'] }}</li>
-                        <li><b>speed: </b>{{ $character['speed'] }}</li>
-                        <li><b>life: </b>{{ $character['life'] }}</li>
+                        <li class="ms-3"><b>defence: </b>{{ $character['defence'] }}</li>
+                        <li class="ms-3"><b>speed: </b>{{ $character['speed'] }}</li>
+                        <li class="ms-3"><b>life: </b>{{ $character['life'] }}</li>
                     </ul>
                 </div>
-                <div class="col">
-                    <button class="btn btn-success">
-                        <a class="text-decoration-none text-reset" href="{{ route('admin.characters.edit', $character) }}">
-                            Modifica personaggio
-                        </a>
-                    </button>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">
-                        Cancella personaggio
-                    </button>
-                    <button class="btn btn-primary">
-                        <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}">
-                            <-Torna ai personaggi </a>
-                    </button>
+
+                <div class="col-6 class-detail">
+                    <h2>Class: {{$character->type->name}}</h2>
+                    <div>
+                        <p class="class-description">{{$character->type->desc}}</p>
+                    </div>
+                </div>
+                <div class="col-6 class-image">
+                    <img src="{{$character->type->Image}}" alt="" class="image-fluid">
+                </div>
+                <div class="col-12 mt-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <button class="btn btn-warning w-100">
+                                <a class="text-decoration-none text-reset" href="{{ route('admin.characters.edit', $character) }}">
+                                    Modifica personaggio
+                                </a>
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">
+                                Cancella personaggio
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary w-100">
+                                <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}">
+                                    Torna alla lista 
+                                </a>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

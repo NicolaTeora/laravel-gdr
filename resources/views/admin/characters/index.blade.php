@@ -11,6 +11,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Class</th>
                             <th>Description</th>
                             <th>more...</th>
                         </tr>
@@ -20,6 +21,7 @@
                         @foreach ($characters as $character)
                         <tr>
                             <td>{{ $character['name'] }}</td>
+                            <td>{{ $character->type['name'] }}</td>
                             <td>{{ $character['description'] }}</td>
                             <td>
                                 <a class="text-wrap text-decoration-none text-bg-primary btn btn-primary"
