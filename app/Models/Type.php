@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    public function characters() {
-        return $this->hasMany(Character::class);
-      }
+  public function characters()
+  {
+    return $this->hasMany(Character::class);
+  }
+
+  public function getAbstract($value, $n_chars)
+  {
+    return (strlen($value) > $n_chars) ? subst($value, 0, $n_chars) . '...' : $value;
+  }
 }

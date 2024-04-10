@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CharacterController;
 use App\Http\Controllers\admin\ItemController;
+use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,8 @@ Route::middleware('auth')
     ->group(function () {
         Route::resource("/characters", CharacterController::class);
         Route::get('/weapons', [ItemController::class, 'index'])->name('weapons');
+        Route::resource("/types", TypeController::class);
+
     });
 // PD
 require __DIR__ . '/auth.php';

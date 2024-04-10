@@ -16,7 +16,7 @@
                 Team 4
             </h1>
 
-            <p class="col-md-8 fs-4">Nicola Teora, Nicola Gallo, Lorenzo Rossini, Pasquale Simeone</p>
+            <p class="col-md-8 fs-4">Nicola Teora, Nicola Pio Gallo, Lorenzo Rossini, Pasquale Francesco Pio Simeone, Nabil Moutahir</p>
         </div>
     </div>
 

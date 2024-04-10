@@ -12,6 +12,10 @@
                     <input type="text" name="name" class="form-control">
                 </div>
                 <div class="col-6">
+                    <label for="type_id" class="form-label">Classe</label>
+                    <input type="text" name="type_id" class="form-control">
+                </div>
+                <div class="col-6">
                     <label for="description" class="form-label">description</label>
                     <textarea name="description" class="form-control"></textarea>
                 </div>

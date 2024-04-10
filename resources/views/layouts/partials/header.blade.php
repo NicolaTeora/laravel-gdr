@@ -25,24 +25,38 @@
                 @auth
                     <li class="nav-item">
                         <a @class([
-                            'nav-link',
-                            'active' => Route::currentRouteName() == 'admin.characters.index',
-                        ]) aria-current="page"
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.characters.index',
+    ]) aria-current="page"
                             href="{{ route('admin.characters.index') }}">Characters</a>
                     </li>
                     <li class="nav-item">
                         <a @class([
-                            'nav-link',
-                            'active' => Route::currentRouteName() == 'admin.characters.create',
-                        ]) aria-current="page"
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.characters.create',
+    ]) aria-current="page"
                             href="{{ route('admin.characters.create') }}">Create character</a>
                     </li>
                     <li class="nav-item">
                         <a @class([
-                            'nav-link',
-                            'active' => Route::currentRouteName() == 'admin.weapons',
-                        ]) aria-current="page" href="{{ route('admin.weapons') }}">Weapons
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.weapons',
+    ]) aria-current="page" href="{{ route('admin.weapons') }}">Weapons
                             List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a @class([
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.types.index',
+    ]) aria-current="page"
+                            href="{{ route('admin.types.index') }}">Types</a>
+                    </li>
+                    <li class="nav-item">
+                        <a @class([
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.types.create',
+    ]) aria-current="page"
+                            href="{{ route('admin.types.create') }}">Create Type</a>
                     </li>
                 @endauth
             </ul>

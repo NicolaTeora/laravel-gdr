@@ -9,12 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 class Character extends Model
 {
     use HasFactory;
-    protected $fillable = ['name',
-    'description',
-    'attack',
-    'defense',
-    'speed',
-    'life' ];
+    protected $fillable = [
+        'name',
+        'description',
+        'attack',
+        'defense',
+        'speed',
+        'life'
+    ];
 
     public function items()
     {
@@ -23,7 +25,16 @@ class Character extends Model
 
     }
 
-    public function type() {
+    public function type()
+    {
         return $this->belongsTo(Type::class);
-      }
+    }
+
+
+    public function getName()
+    {
+
+        return $this->$type_id->name;
+
+    }
 }
