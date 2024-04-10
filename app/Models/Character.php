@@ -15,4 +15,11 @@ class Character extends Model
     'defense',
     'speed',
     'life' ];
+
+    public function items()
+    {
+
+        return $this->belongsToMany(Item::class);
+
+    }
 }
