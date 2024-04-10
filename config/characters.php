@@ -1,6 +1,6 @@
 <?php
 return [
-
+    'characters' => [
         [
             'name' => 'Arthur',
             'description' => 'A brave knight with a strong sense of justice.',
@@ -131,4 +131,5 @@ return [
             'life' => 110,
             'type_id' => 10
         ],
+    ],
 ];

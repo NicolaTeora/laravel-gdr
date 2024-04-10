@@ -18,7 +18,7 @@ class CharacterSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $characters=config('characters');
+        $characters=config("characters.characters");
 
         $types = Type::all()->pluck('id');
         $types[] = null;
