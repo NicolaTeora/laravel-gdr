@@ -21,32 +21,35 @@
                 </div>
 
                 <div class="col-6 class-detail">
-                    <h2>Class: {{$character->type->name}}</h2>
+                    <h2>Class: {{ $character->type->name }}</h2>
                     <div>
-                        <p class="class-description">{{$character->type->desc}}</p>
+                        <p class="class-description">{{ $character->type->desc }}</p>
                     </div>
                 </div>
                 <div class="col-6 class-image">
-                    <img src="{{$character->type->Image}}" alt="" class="image-fluid">
+                    <img src="{{ $character->type->Image }}" alt="" class="image-fluid">
                 </div>
                 <div class="col-12 mt-3">
                     <div class="row">
+
                         <div class="col-4">
                             <button class="btn btn-warning w-100">
-                                <a class="text-decoration-none text-reset" href="{{ route('admin.characters.edit', $character) }}">
+                                <a class="text-decoration-none text-reset"
+                                    href="{{ route('admin.characters.edit', $character) }}">
                                     Modifica personaggio
                                 </a>
                             </button>
                         </div>
                         <div class="col-4">
-                            <button class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">
+                            <button class="btn btn-danger w-100" data-bs-toggle="modal"
+                                data-bs-target="#delete-modal-{{ $character->id }}">
                                 Cancella personaggio
                             </button>
                         </div>
                         <div class="col-4">
                             <button class="btn btn-primary w-100">
                                 <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}">
-                                    Torna alla lista 
+                                    Torna alla lista
                                 </a>
                             </button>
                         </div>
