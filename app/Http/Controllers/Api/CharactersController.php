@@ -15,8 +15,8 @@ class CharactersController extends Controller
      */
     public function index()
     {
-        $characters=Character::select('name','description','attack','defense','speed','intelligence','life')
-        ->with(['type:id,name,Image,desc'])->get();
+        $characters = Character::select('name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life')
+            ->with(['type_id,name,Image,desc'])->get();
 
         return response()->json($characters);
     }
