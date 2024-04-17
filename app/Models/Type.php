@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Type extends Model
 {
-    use HasFactory;
+  use HasFactory;
+  protected $fillable = [
+    'name',
+    'desc',
+  ];
 
-    public function characters() {
-        return $this->hasMany(Character::class);
-      }
+  public function characters()
+  {
+    return $this->hasMany(Character::class);
+  }
 }
