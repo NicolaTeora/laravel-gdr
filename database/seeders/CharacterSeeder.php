@@ -18,20 +18,20 @@ class CharacterSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $characters=config("characters.characters");
+        $characters = config("characters.characters");
 
         $types = Type::all()->pluck('id');
         $types[] = null;
 
         foreach ($characters as $currCharacter) {
-            $type_id =$currCharacter['type_id'];
+            $type_id = $currCharacter['type_id'];
 
             $character = new Character();
             $character->type_id = $type_id;
             $character->name = $currCharacter['name'];
             $character->description = $currCharacter['description'];
             $character->attack = $currCharacter['strength'];
-            $character->defense = $currCharacter['defence'];
+            $character->defence = $currCharacter['defence'];
             $character->speed = $currCharacter['speed'];
             $character->intelligence = $currCharacter['intelligence'];
             $character->life = $currCharacter['life'];

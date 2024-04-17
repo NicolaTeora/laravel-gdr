@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Character;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -15,7 +16,7 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = Character::paginate(10);
+        $characters = Character::orderBy('created_at', 'DESC')->paginate(10);
         return view('admin.characters.index', compact('characters'));
     }
 
@@ -26,7 +27,8 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('admin.characters.create');
+        $types = Type::all();
+        return view('admin.characters.create', compact('types'));
     }
 
     /**
@@ -67,7 +69,9 @@ class CharacterController extends Controller
     //  */
     public function edit(Character $character)
     {
-        return view('admin.characters.edit', compact('character'));
+        $types = Type::all();
+
+        return view('admin.characters.edit', compact('character', 'types'));
     }
 
     /**
@@ -80,6 +84,7 @@ class CharacterController extends Controller
     public function update(Request $request, Character $character)
     {
         $data = $request->all();
+
         $character->update($data);
         return redirect()
             ->route('admin.characters.show', compact('character'))
