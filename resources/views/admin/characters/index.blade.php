@@ -28,14 +28,21 @@
                                 @endif
                                 <td>{{ $character['description'] }}</td>
                                 <td>
+s
+                                    {{-- bottone show --}}
                                     <a class="text-wrap text-decoration-none text-bg-primary btn btn-primary"
                                         href="{{ route('admin.characters.show', $character) }}">
-                                        ...
+                                        Info
                                     </a>
-
-                                    <a class="text-wrap text-decoration-none text-bg-success btn btn-warning"
-                                        href="{{ route('admin.characters.create') }}">
-                                        +
+                                    {{-- bottone edit --}}
+                                    <a class="text-wrap text-decoration-none text-bg-success btn btn-success"
+                                        href="{{ route('admin.characters.edit', $character) }}">
+                                        Edit
+                                    </a>
+                                    {{-- bottone delete --}}
+                                    <a class="text-wrap text-decoration-none text-bg-danger btn btn-danger"
+                                        data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">
+                                        Delete
                                     </a>
                                 </td>
                             </tr>
