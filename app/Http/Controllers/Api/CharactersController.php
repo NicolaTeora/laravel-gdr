@@ -42,7 +42,11 @@ class CharactersController extends Controller
      */
     public function show($id)
     {
-        //
+        $character = Character::select('id','name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])
+        ->where('id',$id)->first();
+        
+            $character->image = asset('/storage' . $character->type->Image);
+        return response()->json($character);
     }
 
     /**
