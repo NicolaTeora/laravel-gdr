@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\CharacterController;
 use App\Http\Controllers\admin\ItemController;
+use App\Http\Controllers\admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,7 @@ Route::middleware('auth')
     ->prefix('/admin')
     ->name('admin.')
     ->group(function () {
+        Route::resource("/types", TypeController::class);
         Route::resource("/characters", CharacterController::class);
         Route::get('/weapons', [ItemController::class, 'index'])->name('weapons');
     });
