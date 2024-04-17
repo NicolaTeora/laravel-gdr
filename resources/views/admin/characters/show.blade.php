@@ -6,33 +6,35 @@
     <section class="character-show">
         <div class="container py-4">
             <div class="row">
-                <h1>{{ $character['name'] }}</h1>
+
+                <h1>{{ $character->name }}</h1>
                 <div class="col-12">
                     <ul class="ps-0">
-                        <li><b>description: </b>{{ $character['description'] }}</li>
+                        <li><b>description: </b>{{ $character->description }}</li>
                     </ul>
 
                     <ul class="ps-0 d-flex w-100 justify content-between">
                         <li><b>attack: </b>{{ $character['attack'] }}</li>
-                        <li class="ms-3"><b>defence: </b>{{ $character['defence'] }}</li>
-                        <li class="ms-3"><b>speed: </b>{{ $character['speed'] }}</li>
-                        <li class="ms-3"><b>life: </b>{{ $character['life'] }}</li>
+                        <li class="ms-3"><b>defence: </b>{{ $character->defence }}</li>
+                        <li class="ms-3"><b>speed: </b>{{ $character->speed }}</li>
+                        <li class="ms-3"><b>life: </b>{{ $character->life }}</li>
                     </ul>
                 </div>
-                @if($character->type)
-                <div class="col-6 class-detail">
-                    <h2>Class: {{ $character->type->name }}</h2>
-                    <div>
-                        <p class="class-description">{{ $character->type->desc }}</p>
+
+                @if ($character->type)
+                    <div class="col-6 class-detail">
+                        <h2>Class: {{ $character->type->name }}</h2>
+                        <div>
+                            <p class="class-description">{{ $character->type->desc }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-6 class-image">
-                    <img src="{{ $character->type->Image }}" alt="" class="image-fluid">
-                </div>
+                    <div class="col-6 class-image">
+                        <img src="{{ $character->type->Image }}" alt="" class="image-fluid">
+                    </div>
                 @endif
                 <div class="col-12 mt-3">
                     <div class="row">
-
+                        {{-- bottone edit --}}
                         <div class="col-4">
                             <button class="btn btn-warning w-100">
                                 <a class="text-decoration-none text-reset"
@@ -41,12 +43,14 @@
                                 </a>
                             </button>
                         </div>
+                        {{-- bottone delete --}}
                         <div class="col-4">
                             <button class="btn btn-danger w-100" data-bs-toggle="modal"
                                 data-bs-target="#delete-modal-{{ $character->id }}">
                                 Cancella personaggio
                             </button>
                         </div>
+                        {{-- bottone back index --}}
                         <div class="col-4">
                             <button class="btn btn-primary w-100">
                                 <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}">
@@ -59,7 +63,7 @@
             </div>
         </div>
 
-
+        {{--  --}}
         {{-- modale cancellazzione --}}
         <div class="modal fade" id="delete-modal-{{ $character->id }}" tabindex="-1"
             aria-labelledby="delete-modal-{{ $character->id }}-label" aria-hidden="true">

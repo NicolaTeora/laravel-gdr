@@ -19,26 +19,34 @@
 
                     <tbody>
                         @foreach ($characters as $character)
-                        <tr>
-                            <td>{{ $character['name'] }}</td>
-                            @if($character->type)
-                            <td>{{ $character->type['name'] }}</td>
-                            @else
-                            <td>-</td>
-                            @endif
-                            <td>{{ $character['description'] }}</td>
-                            <td>
-                                <a class="text-wrap text-decoration-none text-bg-primary btn btn-primary"
-                                href="{{ route('admin.characters.show', $character) }}">
-                                ...
-                                </a>
-                                <a class="text-wrap text-decoration-none text-bg-success btn btn-warning"
-                                href="{{ route('admin.characters.create') }}">
-                                +
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
+                            <tr>
+                                <td>{{ $character['name'] }}</td>
+                                @if ($character->type)
+                                    <td>{{ $character->type['name'] }}</td>
+                                @else
+                                    <td>-</td>
+                                @endif
+                                <td>{{ $character['description'] }}</td>
+                                <td>
+                                    {{-- bottone show --}}
+                                    <a class="text-wrap text-decoration-none text-bg-primary btn btn-primary"
+                                        href="{{ route('admin.characters.show', $character) }}">
+                                        Info
+                                    </a>
+                                    {{-- bottone edit --}}
+                                    <a class="text-wrap text-decoration-none text-bg-success btn btn-success"
+                                        href="{{ route('admin.characters.edit', $character) }}">
+                                        Edit
+                                    </a>
+                                    {{-- bottone delete --}}
+                                    <a class="text-wrap text-decoration-none text-bg-danger btn btn-danger"
+                                        data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">
+                                        Delete
+                                    </a>
+
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
