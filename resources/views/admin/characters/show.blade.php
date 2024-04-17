@@ -19,7 +19,7 @@
                         <li class="ms-3"><b>life: </b>{{ $character['life'] }}</li>
                     </ul>
                 </div>
-
+                @if($character->type)
                 <div class="col-6 class-detail">
                     <h2>Class: {{ $character->type->name }}</h2>
                     <div>
@@ -29,6 +29,7 @@
                 <div class="col-6 class-image">
                     <img src="{{ $character->type->Image }}" alt="" class="image-fluid">
                 </div>
+                @endif
                 <div class="col-12 mt-3">
                     <div class="row">
 

@@ -15,7 +15,7 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = Character::paginate(12);
+        $characters = Character::paginate(10);
         return view('admin.characters.index', compact('characters'));
     }
 

@@ -21,7 +21,11 @@
                         @foreach ($characters as $character)
                         <tr>
                             <td>{{ $character['name'] }}</td>
+                            @if($character->type)
                             <td>{{ $character->type['name'] }}</td>
+                            @else
+                            <td>-</td>
+                            @endif
                             <td>{{ $character['description'] }}</td>
                             <td>
                                 <a class="text-wrap text-decoration-none text-bg-primary btn btn-primary"
@@ -38,6 +42,8 @@
                     </tbody>
                 </table>
             </div>
+            {{ $characters->links() }}
+
         </div>
     </section>
 @endsection
