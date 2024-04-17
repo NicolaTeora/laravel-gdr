@@ -15,9 +15,11 @@ class CharactersController extends Controller
      */
     public function index()
     {
-        $characters = Character::select('name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life')
-            ->with(['type_id,name,Image,desc'])->get();
-
+        $characters = Character::select('name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])->paginate(10);
+        // ->with(['types', 'items'])->get();
+        foreach ($characters as $character) {
+            $character->image = asset('/storage' . $character->type->Image);
+        }
         return response()->json($characters);
     }
 
