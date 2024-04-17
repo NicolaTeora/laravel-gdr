@@ -34,7 +34,7 @@
                 @endif
                 <div class="col-12 mt-3">
                     <div class="row">
-
+                        {{-- bottone edit --}}
                         <div class="col-4">
                             <button class="btn btn-warning w-100">
                                 <a class="text-decoration-none text-reset"
@@ -43,12 +43,14 @@
                                 </a>
                             </button>
                         </div>
+                        {{-- bottone delete --}}
                         <div class="col-4">
                             <button class="btn btn-danger w-100" data-bs-toggle="modal"
                                 data-bs-target="#delete-modal-{{ $character->id }}">
                                 Cancella personaggio
                             </button>
                         </div>
+                        {{-- bottone back index --}}
                         <div class="col-4">
                             <button class="btn btn-primary w-100">
                                 <a class="text-decoration-none text-reset" href="{{ route('admin.characters.index') }}">
@@ -61,7 +63,7 @@
             </div>
         </div>
 
-
+        {{--  --}}
         {{-- modale cancellazzione --}}
         <div class="modal fade" id="delete-modal-{{ $character->id }}" tabindex="-1"
             aria-labelledby="delete-modal-{{ $character->id }}-label" aria-hidden="true">
