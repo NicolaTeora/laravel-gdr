@@ -13,7 +13,7 @@
                             <th>Name</th>
                             <th>Class</th>
                             <th>Description</th>
-                            <th>more...</th>
+                            <th>Azioni</th>
                         </tr>
                     </thead>
 
@@ -28,7 +28,6 @@
                                 @endif
                                 <td>{{ $character['description'] }}</td>
                                 <td>
-s
                                     {{-- bottone show --}}
                                     <a class="text-wrap text-decoration-none text-bg-primary btn btn-primary"
                                         href="{{ route('admin.characters.show', $character) }}">
@@ -53,5 +52,36 @@ s
             {{ $characters->links() }}
 
         </div>
+
+        {{--  --}}
+        {{-- modale cancellazzione --}}
+        @foreach ($characters as $character)
+            <div class="modal fade" id="delete-modal-{{ $character->id }}" tabindex="-1"
+                aria-labelledby="delete-modal-{{ $character->id }}-label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="delete-modal-{{ $character->id }}-label">Conferma eliminazione
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-start">
+                            Sei sicuro di voler eliminare definitivamente il progetto: {{ $character->name }}?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary my-2 w-100"
+                                data-bs-dismiss="modal">Annulla</button>
+
+                            <form action="{{ route('admin.characters.destroy', $character) }}" method="post"
+                                class="w-100">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger mb-2 w-100">Cancella personaggio</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
     </section>
 @endsection

@@ -82,7 +82,7 @@
 
                         <form action="{{ route('admin.characters.destroy', $character) }}" method="post" class="w-100">
                             @csrf
-                            @method('delete')
+                            @method('DELETE')
                             <button type="submit" class="btn btn-danger mb-2 w-100">Cancella personaggio</button>
                         </form>
                     </div>
