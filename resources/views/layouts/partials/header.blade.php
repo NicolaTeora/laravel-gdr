@@ -25,23 +25,30 @@
                 @auth
                     <li class="nav-item">
                         <a @class([
-                            'nav-link',
-                            'active' => Route::currentRouteName() == 'admin.characters.index',
-                        ]) aria-current="page"
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.characters.index',
+    ]) aria-current="page"
                             href="{{ route('admin.characters.index') }}">Characters</a>
                     </li>
                     <li class="nav-item">
                         <a @class([
-                            'nav-link',
-                            'active' => Route::currentRouteName() == 'admin.characters.create',
-                        ]) aria-current="page"
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.characters.create',
+    ]) aria-current="page"
                             href="{{ route('admin.characters.create') }}">Create character</a>
                     </li>
                     <li class="nav-item">
                         <a @class([
-                            'nav-link',
-                            'active' => Route::currentRouteName() == 'admin.weapons',
-                        ]) aria-current="page" href="{{ route('admin.weapons') }}">Weapons
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.weapons',
+    ]) aria-current="page" href="{{ route('admin.weapons') }}">Weapons
+                            List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a @class([
+        'nav-link',
+        'active' => Route::currentRouteName() == 'admin.types',
+    ]) aria-current="page" href="{{ route('admin.types.index') }}">Types
                             List</a>
                     </li>
                 @endauth

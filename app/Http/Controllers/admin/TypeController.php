@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Character;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
-class CharacterController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = Character::orderBy('created_at', 'DESC')->paginate(10);
-        return view('admin.characters.index', compact('characters'));
+        $types = Type::paginate(12);
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -27,8 +26,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        $types = Type::all();
-        return view('admin.characters.create', compact('types'));
+        return view('admin.types.create');
     }
 
     /**
@@ -40,54 +38,54 @@ class CharacterController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $character = new Character();
-        $character->fill($data);
-        $character->save();
+        // dd($data);
+        $new_type = new Type();
+        $new_type->fill($data);
+        $new_type->Image = str("NO IMAGE");
+        $new_type->save();
         return redirect()
-            ->route('admin.characters.show', $character)
+            ->route('admin.types.show', $new_type)
             ->with('message', 'Nuovo personaggio salvato con successo')
-            ->with('class', 'alert-success');;
+            ->with('class', 'alert-success');
+        ;
     }
 
     /**
      * Display the specified resource.
      *
-    //  * @param  \App\Models\Character  $character
+    //  * @param  \App\Models\type  $type
     //  * @return \Illuminate\Http\Response
      */
-    public function show(Character $character)
+    public function show(Type $type)
     {
 
-        return view('admin.characters.show', compact('character'));
+        return view('admin.types.show', compact('type'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-    //  * @param  \App\Models\Character  $character
+    //  * @param  \App\Models\type  $type
     //  * @return \Illuminate\Http\Response
     //  */
-    public function edit(Character $character)
+    public function edit(Type $type)
     {
-        $types = Type::all();
-
-        return view('admin.characters.edit', compact('character', 'types'));
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
      * Update the specified resource in storage.
      *
     //  * @param  \Illuminate\Http\Request  $request
-    //  * @param  \App\Models\Character  $character
+    //  * @param  \App\Models\type  $type
     //  * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Character $character)
+    public function update(Request $request, Type $type)
     {
         $data = $request->all();
-
-        $character->update($data);
+        $type->update($data);
         return redirect()
-            ->route('admin.characters.show', compact('character'))
+            ->route('admin.types.show', compact('type'))
             ->with('message', 'Modifica effettuata con successo')
             ->with('class', 'alert-success');
     }
@@ -95,14 +93,14 @@ class CharacterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-    //  * @param  \App\Models\Character  $character
+    //  * @param  \App\Models\type  $type
     //  * @return \Illuminate\Http\Response
      */
-    public function destroy(Character $character)
+    public function destroy(type $type)
     {
-        $character->delete();
+        $type->delete();
         return redirect()
-            ->route('admin.characters.index')
+            ->route('admin.types.index')
             ->with('message', 'Personaggio eliminato con successo')
             ->with('class', 'alert-success');
     }

@@ -28,6 +28,7 @@
                                 @endif
                                 <td>{{ $character['description'] }}</td>
                                 <td>
+s
                                     {{-- bottone show --}}
                                     <a class="text-wrap text-decoration-none text-bg-primary btn btn-primary"
                                         href="{{ route('admin.characters.show', $character) }}">
@@ -43,7 +44,6 @@
                                         data-bs-toggle="modal" data-bs-target="#delete-modal-{{ $character->id }}">
                                         Delete
                                     </a>
-
                                 </td>
                             </tr>
                         @endforeach

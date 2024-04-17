@@ -8,26 +8,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class Character extends Model
 {
-    use HasFactory;
-    protected $fillable = ['name',
+  use HasFactory;
+  protected $fillable = [
+    'name',
+    'type',
     'description',
     'attack',
-    'defense',
+    'defence',
     'speed',
-    'life' ];
+    'life'
+  ];
 
-    public function items()
-    {
+  public function items()
+  {
 
-        return $this->belongsToMany(Item::class);
+    return $this->belongsToMany(Item::class);
+  }
 
-    }
+  public function type()
+  {
+    return $this->belongsTo(Type::class);
+  }
 
-    public function type() {
-        return $this->belongsTo(Type::class);
-      }
-
-      public function getUrl(){
-        return $this->type->Image;
-      }
+  public function getUrl()
+  {
+    return $this->type->Image;
+  }
 }
