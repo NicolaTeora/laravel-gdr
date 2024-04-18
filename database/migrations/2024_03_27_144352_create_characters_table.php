@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 200);
             $table->text('description')->nullable();
             $table->integer('attack')->default(0);
-            $table->integer('defence')->default(0);
+            $table->integer('defense')->default(0);
             $table->integer('speed')->default(0);
             $table->integer('intelligence')->default(0);
             $table->integer('life')->default(0);
