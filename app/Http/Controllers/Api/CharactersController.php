@@ -15,10 +15,10 @@ class CharactersController extends Controller
      */
     public function index()
     {
-        $characters = Character::select('id','name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])->paginate(10);
+        $characters = Character::select('id', 'name', 'description', 'attack', 'defence', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])->paginate(10);
         // ->with(['types', 'items'])->get();
         foreach ($characters as $character) {
-            $character->image = asset('/storage' . $character->type->Image);
+            $character->image = asset('/storage/' . $character->type->Image);
         }
         return response()->json($characters);
     }
@@ -42,10 +42,10 @@ class CharactersController extends Controller
      */
     public function show($id)
     {
-        $character = Character::select('id','name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])
-        ->where('id',$id)->first();
-        
-            $character->image = asset('/storage' . $character->type->Image);
+        $character = Character::select('id', 'name', 'description', 'attack', 'defence', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])
+            ->where('id', $id)->first();
+
+        $character->image = asset('/storage' . $character->type->Image);
         return response()->json($character);
     }
 
