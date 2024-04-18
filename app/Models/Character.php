@@ -14,7 +14,7 @@ class Character extends Model
     'type',
     'description',
     'attack',
-    'defense',
+    'defence',
     'speed',
     'life',
     'type_id'
