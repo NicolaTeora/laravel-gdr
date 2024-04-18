@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Character;
 use Illuminate\Http\Request;
 
+//
 class CharactersController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class CharactersController extends Controller
      */
     public function index()
     {
-        $characters = Character::select('id', 'name', 'description', 'attack', 'defence', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])->paginate(10);
+        $characters = Character::select('id', 'name', 'description', 'attack', 'defence', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])->get();
         // ->with(['types', 'items'])->get();
         foreach ($characters as $character) {
             $character->image = asset('/storage/' . $character->type->Image);

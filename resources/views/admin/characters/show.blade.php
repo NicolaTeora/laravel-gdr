@@ -15,7 +15,7 @@
 
                     <ul class="ps-0 d-flex w-100 justify content-between">
                         <li><b>attack: </b>{{ $character['attack'] }}</li>
-                        <li class="ms-3"><b>defence: </b>{{ $character->defence }}</li>
+                        <li class="ms-3"><b>defence: </b>{{ $character->defense }}</li>
                         <li class="ms-3"><b>speed: </b>{{ $character->speed }}</li>
                         <li class="ms-3"><b>life: </b>{{ $character->life }}</li>
                     </ul>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="col-6 class-image">
-                        <img src="{{ $character->type->Image }}" alt="" class="image-fluid">
+                        <img src="{{ asset('storage/'. $character->type->Image) }}" alt="" class="image-fluid">
                     </div>
                 @endif
                 <div class="col-12 mt-3">
