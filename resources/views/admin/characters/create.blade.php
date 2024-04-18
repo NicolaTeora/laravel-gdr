@@ -31,7 +31,7 @@
                 {{-- input defence --}}
                 <div class="col-6">
                     <label for="defence" class="form-label">defence</label>
-                    <input type="number" min="1" max="100" name="defense" class="form-control">
+                    <input type="number" min="1" max="100" name="defence" class="form-control">
                 </div>
                 {{-- input speed --}}
                 <div class="col-6">
