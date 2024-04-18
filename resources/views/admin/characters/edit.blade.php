@@ -37,7 +37,7 @@
                 {{-- edit difesa --}}
                 <div class="col-6 mt-3">
                     <label for="defence" class="form-label">defence</label>
-                    <input value="{{ $character->defence }}" type="number" min="1" max="100" name="defence"
+                    <input value="{{ $character->defense }}" type="number" min="1" max="100" name="defense"
                         class="form-control">
                 </div>
                 {{-- edit speed --}}
