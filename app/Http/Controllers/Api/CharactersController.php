@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Character;
 use Illuminate\Http\Request;
 
+//
 class CharactersController extends Controller
 {
     /**
@@ -42,10 +43,10 @@ class CharactersController extends Controller
      */
     public function show($id)
     {
-        $character = Character::select('id','name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])
-        ->where('id',$id)->first();
-        
-            $character->image = asset('/storage' . $character->type->Image);
+        $character = Character::select('id', 'name', 'description', 'attack', 'defense', 'speed', 'intelligence', 'life', 'type_id')->with(['type'])
+            ->where('id', $id)->first();
+
+        $character->image = asset('/storage' . $character->type->Image);
         return response()->json($character);
     }
 
